@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Návrh počítačové sestavy</title>
+    <!-- Google fonts: Plus Jakarta Sans + Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.ico">
+    <!-- CSS link -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    
+    <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200">
+        <div class="px-3 py-3 lg:px-5 lg:pl-3">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center justify-start rtl:justify-end">
+              <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
+                  <span class="sr-only">Open sidebar</span>
+                  <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                     <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+                  </svg>
+               </button>
+              <a href="/" class="flex ms-2 md:me-24">
+                <img src="/assets/favicon.ico" class="h-8 me-3" alt="PC obrázek"/>
+                <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap">PC Sestava</span>
+              </a>
+            </div>
+            
+          </div>
+        </div>
+    </nav>
+      
+    <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0">
+         <div class="h-full px-3 pb-4 overflow-y-auto bg-white">
+            <ul class="space-y-2 font-medium">
+               <li>
+                  <a href="#komponenty" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cpu" viewBox="0 0 16 16">
+                        <path d="M5 0a.5.5 0 0 1 .5.5V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2A2.5 2.5 0 0 1 14 4.5h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14a2.5 2.5 0 0 1-2.5 2.5v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14A2.5 2.5 0 0 1 2 11.5H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2A2.5 2.5 0 0 1 4.5 2V.5A.5.5 0 0 1 5 0m-.5 3A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 11.5 3zM5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5zM6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"/>
+                    </svg>
+                    <span class="ms-3">Procesor</span>
+                  </a>
+               </li>
+               <li>
+                    <a href="#grafika-sekce" class="flex items-center p-2 text-gray-900 rounded-lg group">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gpu-card" viewBox="0 0 16 16">
+                            <path d="M4 8a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0m7.5-1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"/>
+                            <path d="M0 1.5A.5.5 0 0 1 .5 1h1a.5.5 0 0 1 .5.5V4h13.5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5H2v2.5a.5.5 0 0 1-1 0V2H.5a.5.5 0 0 1-.5-.5m5.5 4a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M9 8a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0"/>
+                            <path d="M3 12.5h3.5v1a.5.5 0 0 1-.5.5H3.5a.5.5 0 0 1-.5-.5zm4 1v-1h4v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5"/>
+                        </svg>
+                        <span class="ms-3">Grafická Karta</span>
+                    </a>
+                </li>
+               <li>
+                <a href="#zakladni-deska-sekce" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-motherboard" viewBox="0 0 16 16">
+                        <path d="M11.5 2a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5m2 0a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5m-10 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zM5 3a1 1 0 0 0-1 1h-.5a.5.5 0 0 0 0 1H4v1h-.5a.5.5 0 0 0 0 1H4a1 1 0 0 0 1 1v.5a.5.5 0 0 0 1 0V8h1v.5a.5.5 0 0 0 1 0V8a1 1 0 0 0 1-1h.5a.5.5 0 0 0 0-1H9V5h.5a.5.5 0 0 0 0-1H9a1 1 0 0 0-1-1v-.5a.5.5 0 0 0-1 0V3H6v-.5a.5.5 0 0 0-1 0zm0 1h3v3H5zm6.5 7a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z"/>
+                        <path d="M1 2a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-2H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 9H1V8H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6H1V5H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 2zm1 11a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1z"/>
+                    </svg>
+                    <span class="ms-3">Základní Deska</span>
+                 </a>
+               </li>
+               <li>
+                <a href="#ram-sekce" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100group">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-memory" viewBox="0 0 16 16">
+                        <path d="M1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.586a1 1 0 0 0 .707-.293l.353-.353a.5.5 0 0 1 .708 0l.353.353a1 1 0 0 0 .707.293H15a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm.5 1h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5m5 0h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5m4.5.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5zM2 10v2H1v-2zm2 0v2H3v-2zm2 0v2H5v-2zm3 0v2H8v-2zm2 0v2h-1v-2zm2 0v2h-1v-2zm2 0v2h-1v-2z"/>
+                    </svg>
+                    <span class="ms-3">Operační Paměť</span>
+                 </a>
+               </li>
+               <li>
+                  <a href="#ssd-sekce" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-device-ssd" viewBox="0 0 16 16">
+                        <path d="M4.75 4a.75.75 0 0 0-.75.75v3.5c0 .414.336.75.75.75h6.5a.75.75 0 0 0 .75-.75v-3.5a.75.75 0 0 0-.75-.75zM5 8V5h6v3zm0-5.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m7 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0M4.5 11a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1m7 0a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
+                        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm11 12V2a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1v-2a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2a1 1 0 0 0 1-1m-7.25 1v-2H5v2zm1.75 0v-2h-.75v2zm1.75 0v-2H8.5v2zM11 13h-.75v2H11z"/>
+                    </svg>
+                     <span class="flex-1 ms-3 whitespace-nowrap">SSD Úložiště</span>
+                  </a>
+               </li>
+               <li>
+                  <a href="#skrin-sekce" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pc" viewBox="0 0 16 16">
+                        <path d="M5 0a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1zm.5 14a.5.5 0 1 1 0 1 .5.5 0 0 1 0-1m2 0a.5.5 0 1 1 0 1 .5.5 0 0 1 0-1M5 1.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5M5.5 3h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1"/>
+                    </svg>
+                    <span class="flex-1 ms-3 whitespace-nowrap">Skříň</span>
+                  </a>
+               </li>
+               <li>
+                  <a href="#zdroj-sekce" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
+                        <path d="M7.5 1v7h1V1z"/>
+                        <path d="M3 8.812a5 5 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812"/>
+                    </svg>
+                    <span class="flex-1 ms-3 whitespace-nowrap">Zdroj</span>
+                  </a>
+               </li>
+               <li>
+                <a href="#monitor-sekce" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-display" viewBox="0 0 16 16">
+                        <path d="M0 4s0-2 2-2h12s2 0 2 2v6s0 2-2 2h-4q0 1 .25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75Q6 13 6 12H2s-2 0-2-2zm1.398-.855a.76.76 0 0 0-.254.302A1.5 1.5 0 0 0 1 4.01V10c0 .325.078.502.145.602q.105.156.302.254a1.5 1.5 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.76.76 0 0 0 .254-.302 1.5 1.5 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.76.76 0 0 0-.302-.254A1.5 1.5 0 0 0 13.99 3H2c-.325 0-.502.078-.602.145"/>
+                    </svg>
+                   <span class="flex-1 ms-3 whitespace-nowrap">Monitor</span>
+                </a>
+             </li>
+             <li>
+                <a href="#klavesnice-sekce" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-keyboard" viewBox="0 0 16 16">
+                        <path d="M14 5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zM2 4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/>
+                        <path d="M13 10.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zm0-2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zm-5 0A.25.25 0 0 1 8.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 8 8.75zm2 0a.25.25 0 0 1 .25-.25h1.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-1.5a.25.25 0 0 1-.25-.25zm1 2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zm-5-2A.25.25 0 0 1 6.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 6 8.75zm-2 0A.25.25 0 0 1 4.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 4 8.75zm-2 0A.25.25 0 0 1 2.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 2 8.75zm11-2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zm-2 0a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zm-2 0A.25.25 0 0 1 9.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 9 6.75zm-2 0A.25.25 0 0 1 7.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 7 6.75zm-2 0A.25.25 0 0 1 5.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 5 6.75zm-3 0A.25.25 0 0 1 2.25 6h1.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-1.5A.25.25 0 0 1 2 6.75zm0 4a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zm2 0a.25.25 0 0 1 .25-.25h5.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-5.5a.25.25 0 0 1-.25-.25z"/>
+                    </svg>
+                   <span class="flex-1 ms-3 whitespace-nowrap">Klávesnice</span>
+                </a>
+             </li>
+             <li>
+                <a href="#mys-sekce" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-mouse" viewBox="0 0 16 16">
+                        <path d="M8 3a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 3m4 8a4 4 0 0 1-8 0V5a4 4 0 1 1 8 0zM8 0a5 5 0 0 0-5 5v6a5 5 0 0 0 10 0V5a5 5 0 0 0-5-5"/>
+                    </svg>
+                   <span class="flex-1 ms-3 whitespace-nowrap">Myš</span>
+                </a>
+             </li>
+             <li>
+                <a href="#sluchatka-sekce" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-headset" viewBox="0 0 16 16">
+                        <path d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5"/>
+                    </svg>
+                   <span class="flex-1 ms-3 whitespace-nowrap">Sluchátka</span>
+                </a>
+             </li>
+            </ul>
+         </div>
+    </aside>
+      
+    
+    <!-- Landing obrázek -->
+    <div class="nadpisUvod p-4 sm:ml-64 mt-8 md:mt-12 lg:mt-16 flex flex-col justify-center min-h-screen">
+        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
+            <div class="flex flex-col justify-center">
+                <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">Nadupaná herní PC sestava</h1>
+                <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl ">Extrémně výkonný počítač určený pro hraní všeho možného na co nejvyšší detaily a výkon.</p>
+                <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0">
+                    <a href="#komponenty" class="cta-tlacitko inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-red-600 focus:ring-4 focus:ring-red-300">
+                        Komponenty
+                        <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg>
+                    </a>
+                    <a href="#info" class="py-3 px-5 sm:ms-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-100">
+                        Zjistit více
+                    </a>  
+                </div>
+            </div>
+            <div data-aos="slide-down" data-aos-duration="1500" data-aos-delay="0" data-aos-easing="ease-out">
+                <img class="h-auto max-w-full" src="assets/pc1.webp" alt="image description">
+            </div>
+        </div>
+    </div>
+
+    <!-- Content (Komponenty, galerie) -->
+    <div id="info" class="nadpisUvod p-4 sm:ml-64 mt-8 md:mt-12 lg:mt-16 flex flex-col justify-center min-h-screen">
+        <section class="bg-white">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
+                <div class="bg-gray-50 border border-gray-200 rounded-lg p-8 md:p-12 mb-8">
+                    <h1 class="text-gray-900 text-3xl md:text-5xl font-extrabold mb-2">Nejlepší herní mašina na trhu.</h1>
+                    <p class="text-lg font-normal text-gray-500 mb-6">Extrémní výkon a plynulý herní zážitek s top herním PC, které zvládne i ty nejnáročnější tituly na maximálních detailech. Vysoký výkon, špičkové komponenty a dlouhá životnost – to je to, co tato herní sestava nabízí.</p>
+                    <a href="#tabulka-data" class="cta-tlacitko inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-red-600 focus:ring-4 focus:ring-red-300 ">
+                        Zjistit více
+                        <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg>
+                    </a>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 border border-gray-200 rounded-lg p-8 md:p-12">
+                    <a href="#" class="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md mb-2">                      
+                        CPU
+                    </a>
+                    <h2 class="text-gray-900 text-3xl font-extrabold mb-2">AMD Ryzen 9 9950X</h2>
+                    <p class="text-lg font-normal text-gray-500 mb-4">Extrémně výkonný procesor pro nejnáročnější úkoly. Ideální pro hraní her i profesionální tvorbu obsahu.</p>
+                    <a href="/komponenty/procesor.html" class="text-red-600 hover:underline font-medium text-lg inline-flex items-center">Informace
+                        <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                    </svg>
+                    </a>
+                </div>
+                <div class="bg-gray-50 border border-gray-200 rounded-lg p-8 md:p-12">
+                    <a href="/komponenty/grafika.html" class="bg-purple-100 text-purple-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md mb-2">
+                        GPU
+                    </a>
+                    <h2 class="text-gray-900 text-3xl font-extrabold mb-2">NVIDIA GeForce RTX 4090</h2>
+                    <p class="text-lg font-normal text-gray-500 mb-4">Nejvýkonnější grafická karta pro hraní v 4K a ray tracing. Perfektní volba pro náročné hráče a tvůrce obsahu.</p>
+                    <a id="tabulka-data" href="/komponenty/grafika.html" class="text-red-600 hover:underline font-medium text-lg inline-flex items-center">Informace
+                        <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                    </svg>
+                    </a>
+                    </div>
+                </div>
+                <div class="my-8 mx-0 relative overflow-x-auto shadow-md sm:rounded-lg">
+                    <table class="w-full text-sm text-left text-gray-500">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    Název produktu
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Kategorie
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Výrobce
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Cena
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Odkaz na stránky výrobce
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-white border-b">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    AMD Ryzen 9 9950X
+                                </th>
+                                <td class="px-6 py-4">
+                                    Komponenta - CPU
+                                </td>
+                                <td class="px-6 py-4">
+                                    AMD
+                                </td>
+                                <td class="px-6 py-4">
+                                    17 590Kč
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-9-9950x.html" target="_blank" class="font-medium text-blue-600 underline hover:no-underline">AMD Ryzen 9 9950X</a>
+                                </td>
+                            </tr>
+                            <tr class="bg-gray-50 border-b">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    GeForce RTX 4090
+                                </th>
+                                <td class="px-6 py-4">
+                                    Komponenta - GPU
+                                </td>
+                                <td class="px-6 py-4">
+                                    ASUS, NVIDIA
+                                </td>
+                                <td class="px-6 py-4">
+                                    53 990Kč
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="https://www.asus.com/cz/motherboards-components/graphics-cards/tuf-gaming/tuf-rtx4090-o24g-gaming/" target="_blank" class="font-medium text-blue-600 underline hover:no-underline">ASUS GeForce RTX 4090</a>
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    ASUS ROG CROSSHAIR X870E HERO
+                                </th>
+                                <td class="px-6 py-4">
+                                    Komponenta - Základní deska
+                                </td>
+                                <td class="px-6 py-4">
+                                    ASUS
+                                </td>
+                                <td class="px-6 py-4">
+                                    16 090Kč
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="https://rog.asus.com/motherboards/rog-crosshair/rog-crosshair-x870e-hero/" target="_blank" class="font-medium text-blue-600 underline hover:no-underline">ASUS ROG Crosshair X870 E HERO</a>
+                                </td>
+                            </tr>
+                            <tr class="bg-gray-50 border-b">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    Corsair RAM 64GB DDR5
+                                </th>
+                                <td class="px-6 py-4">
+                                    Komponenta - RAM paměť
+                                </td>
+                                <td class="px-6 py-4">
+                                    Corsair
+                                </td>
+                                <td class="px-6 py-4">
+                                    5 999Kč
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="https://www.corsair.com/eu/en/p/memory/cmk64gx5m2b6400c32/vengeance-64gb-2x32gb-ddr5-dram-6400mhz-c32-memory-kit-black-cmk64gx5m2b6400c32?srsltid=AfmBOoqG9XWjoTUPXMqybf1CD1QTIeu7a7MyOLaurh42JWpAqS-JrJKh" target="_blank" class="font-medium text-blue-600 underline hover:no-underline">Corsair RAM 64GB</a>
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    Samsung 990 SSD 4TB
+                                </th>
+                                <td class="px-6 py-4">
+                                    Komponenta - SSD úložiště
+                                </td>
+                                <td class="px-6 py-4">
+                                    Samsung
+                                </td>
+                                <td class="px-6 py-4">
+                                    8 499Kč
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="https://www.samsung.com/cz/memory-storage/nvme-ssd/990-pro-4tb-nvme-pcie-gen-4-mz-v9p4t0bw/" target="_blank" class="font-medium text-blue-600 underline hover:no-underline">Samsung 990 SSD 4TB</a>
+                                </td>
+                            </tr>
+                            <tr class="bg-gray-50 border-b">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    Cooler Master HAF 700
+                                </th>
+                                <td class="px-6 py-4">
+                                    Komponenta - PC skříň
+                                </td>
+                                <td class="px-6 py-4">
+                                    Cooler Master
+                                </td>
+                                <td class="px-6 py-4">
+                                    11 990Kč
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="https://www.coolermaster.com/en-global/products/haf-700-evo/" target="_blank" class="font-medium text-blue-600 underline hover:no-underline">Cooler Master HAF 700</a>
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    Corsair SF850
+                                </th>
+                                <td class="px-6 py-4">
+                                    Komponenta - Zdroj
+                                </td>
+                                <td class="px-6 py-4">
+                                    Corsair
+                                </td>
+                                <td class="px-6 py-4">
+                                    5 019Kč
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="https://www.corsair.com/us/en/p/psu/cp-9020256-na/sf-series-sf850-fully-modular-80-plus-platinum-sfx-power-supply-cp-9020256-na?srsltid=AfmBOooBaMTNQZGvEpPqXXdqcxfOW95UpRmwvCxPm_QrGkLcorMUjHbC" target="_blank" class="font-medium text-blue-600 underline hover:no-underline">Corsair SF850</a>
+                                </td>
+                            </tr>
+                            <tr class="bg-gray-50 border-b">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    ZOWIE by BenQ XL2566X+
+                                </th>
+                                <td class="px-6 py-4">
+                                    Periferie - Monitor
+                                </td>
+                                <td class="px-6 py-4">
+                                    Zowie by BenQ
+                                </td>
+                                <td class="px-6 py-4">
+                                    20 190Kč
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="https://zowie.benq.com/en-ap/monitor/xl2566x-plus.html" target="_blank" class="font-medium text-blue-600 underline hover:no-underline">ZOWIE by BenQ XL2566X+</a>
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    Wooting 60HE+
+                                </th>
+                                <td class="px-6 py-4">
+                                    Periferie - Klávesnice
+                                </td>
+                                <td class="px-6 py-4">
+                                    Wooting
+                                </td>
+                                <td class="px-6 py-4">
+                                    4 870Kč
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="https://wooting.io/wooting-60he" target="_blank" class="font-medium text-blue-600 underline hover:no-underline">Wooting 60HE+</a>
+                                </td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    ZOWIE by BenQ U2
+                                </th>
+                                <td class="px-6 py-4">
+                                    Periferie - Myš
+                                </td>
+                                <td class="px-6 py-4">
+                                    Zowie by BenQ
+                                </td>
+                                <td class="px-6 py-4">
+                                    4 079Kč
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="https://zowie.benq.eu/en-eu/mouse/u2.html" target="_blank" class="font-medium text-blue-600 underlinehover:no-underline">ZOWIE by BenQ U2</a>
+                                </td>
+                            </tr>
+                            <tr class="bg-white">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    SteelSeries Arctis Nova Pro Wireless
+                                </th>
+                                <td class="px-6 py-4">
+                                    Periferie - Sluchátka
+                                </td>
+                                <td class="px-6 py-4">
+                                    SteelSeries
+                                </td>
+                                <td class="px-6 py-4">
+                                    8 999Kč
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="https://steelseries.com/gaming-headsets/arctis-nova-pro-wireless-pc-playstation?color=black&srsltid=AfmBOoquXaZSGnWP52bEsJ3k9C-V471MnNVlXdFqZQyC4QkiN81RaZ7c" target="_blank" class="font-medium text-blue-600 underline hover:no-underline">SteelSeries Arctis Nova Pro Wireless</a>
+                                </td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <th scope="row" class="celkova-cena px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    <b><u>Celková Cena Sestavy:</u></b>
+                                </th>
+                                <td class="px-6 py-4">
+                                    
+                                </td>
+                                <td class="px-6 py-4">
+                                    
+                                </td>
+                                <td class="celkova-cena px-6 py-4">
+                                    <b><u>157 315Kč</u></b>
+                                </td>
+                                <td class="px-6 py-4">
+                                    
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <hr id="komponenty" class="my-4 border-gray-200 ">
+
+        <section class="bg-white">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
+                <div class="flex flex-col justify-center">
+                    <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">AMD Ryzen 9 9950X</h1>
+                    <p class="mb-4 text-lg font-normal text-gray-500 lg:text-xl">Procesor.</p>
+                    <p class="mb-8 text-lg font-normal text-black-500 lg:text-xl">Optimalizovaný výkon, který splní všechny vaše požadavky. Perfektní pro multitasking a maximální produktivitu.</p>
+                    <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0">
+                        <a href="/komponenty/procesor.html" class="cta-tlacitko inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-red-600 focus:ring-4 focus:ring-red-300">
+                            Více informací
+                            <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-9-9950x.html" target="_blank" class="py-3 px-5 sm:ms-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-100">
+                            Odkaz na výrobce
+                        </a> 
+                    </div>
+                </div>
+                <div>
+                    <figure class="max-w-lg">
+                        <img class="h-auto max-w-full rounded-lg" src="/assets/procesor.avif" alt="Procesor">
+                        <figcaption class="mt-2 text-sm text-center text-gray-500">AMD Ryzen 9 9950X</figcaption>
+                    </figure>                                      
+                </div>
+            </div>
+            
+        </section>
+
+        <hr id="grafika-sekce" class="my-8 border-gray-200">
+
+        <section class="bg-white">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
+                <div class="flex flex-col justify-center">
+                    <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">NVIDIA GeForce RTX 4090</h1>
+                    <p class="mb-4 text-lg font-normal text-gray-500 lg:text-xl">Grafická Karta.</p>
+                    <p class="mb-8 text-lg font-normal text-black-500 lg:text-xl">Nejvýkonnější grafická karta pro hraní v 4K a ray tracing. Perfektní volba pro náročné hráče a tvůrce obsahu.</p>
+                    <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0">
+                        <a href="/komponenty/grafika.html" class="cta-tlacitko inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-red-600 focus:ring-4 focus:ring-red-300">
+                            Více informací
+                            <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.asus.com/cz/motherboards-components/graphics-cards/tuf-gaming/tuf-rtx4090-o24g-gaming/" target="_blank" class="py-3 px-5 sm:ms-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-100">
+                            Odkaz na výrobce
+                        </a> 
+                    </div>
+                </div>
+                <div>
+                    <figure class="max-w-lg">
+                        <img class="h-auto max-w-full rounded-lg" src="/assets/grafika.avif" alt="Grafika">
+                        <figcaption class="mt-2 text-sm text-center text-gray-500">NVIDIA GeForce RTX 4090</figcaption>
+                    </figure>                                      
+                </div>
+            </div>
+        </section>
+
+        <hr id="zakladni-deska-sekce" class="my-8 border-gray-200">
+
+        <section class="bg-white">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
+                <div class="flex flex-col justify-center">
+                    <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">ASUS X870E</h1>
+                    <p class="mb-4 text-lg font-normal text-gray-500 lg:text-xl">Základní Deska.</p>
+                    <p class="mb-8 text-lg font-normal text-black-500 lg:text-xl">Podpora nejnovějších procesorů, špičkový chlazení a připojení nové generace. Ideální volba pro hráče a tvůrce obsahu.</p>
+                    <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0">
+                        <a href="/komponenty/zakladni-deska.html" class="cta-tlacitko inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-red-600 focus:ring-4 focus:ring-red-300">
+                            Více informací
+                            <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            </svg>
+                        </a>
+                        <a href="https://rog.asus.com/motherboards/rog-crosshair/rog-crosshair-x870e-hero/" target="_blank" class="py-3 px-5 sm:ms-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-100">
+                            Odkaz na výrobce
+                        </a> 
+                    </div>
+                </div>
+                <div>
+                    <figure class="max-w-lg">
+                        <img class="h-auto max-w-full rounded-lg" src="/assets/zakladni_deska.avif" alt="Grafika">
+                        <figcaption class="mt-2 text-sm text-center text-gray-500">ASUS X870E HERO</figcaption>
+                    </figure>                                      
+                </div>
+            </div>
+        </section>
+
+        <hr id="ram-sekce" class="my-8 border-gray-200">
+
+        <section class="bg-white">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
+                <div class="flex flex-col justify-center">
+                    <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">Corsair 64GB</h1>
+                    <p class="mb-4 text-lg font-normal text-gray-500 lg:text-xl">Operační Paměť.</p>
+                    <p class="mb-8 text-lg font-normal text-black-500 lg:text-xl">Špičková frekvence a vysoká kapacita zajišťují plynulý multitasking, stabilitu a výkon při každém použití.</p>
+                    <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0">
+                        <a href="/komponenty/operacni-pamet.html" class="cta-tlacitko inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-red-600 focus:ring-4 focus:ring-red-300">
+                            Více informací
+                            <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.corsair.com/eu/en/p/memory/cmk64gx5m2b6400c32/vengeance-64gb-2x32gb-ddr5-dram-6400mhz-c32-memory-kit-black-cmk64gx5m2b6400c32?srsltid=AfmBOoqG9XWjoTUPXMqybf1CD1QTIeu7a7MyOLaurh42JWpAqS-JrJKh" target="_blank" class="py-3 px-5 sm:ms-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-100">
+                            Odkaz na výrobce
+                        </a> 
+                    </div>
+                </div>
+                <div>
+                    <figure class="max-w-lg">
+                        <img class="h-auto max-w-full rounded-lg" src="/assets/ram.avif" alt="Grafika">
+                        <figcaption class="mt-2 text-sm text-center text-gray-500">Corsair 64GB KIT DDR5 6400MHz</figcaption>
+                    </figure>                                      
+                </div>
+            </div>
+        </section>
+
+        <hr id="ssd-sekce" class="my-8 border-gray-200">
+
+        <section class="bg-white">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
+                <div class="flex flex-col justify-center">
+                    <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">Samsung 4TB SSD</h1>
+                    <p class="mb-4 text-lg font-normal text-gray-500 lg:text-xl">Pevné Úložiště.</p>
+                    <p class="mb-8 text-lg font-normal text-black-500 lg:text-xl">Obrovská kapacita a špičkový výkon pro rychlé načítání her, aplikací a dat. Perfektní volba pro moderní systémy.</p>
+                    <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0">
+                        <a href="/komponenty/ssd.html" class="cta-tlacitko inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-red-600 focus:ring-4 focus:ring-red-300">
+                            Více informací
+                            <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.samsung.com/cz/memory-storage/nvme-ssd/990-pro-4tb-nvme-pcie-gen-4-mz-v9p4t0bw/" target="_blank" class="py-3 px-5 sm:ms-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-100">
+                            Odkaz na výrobce
+                        </a> 
+                    </div>
+                </div>
+                <div>
+                    <figure class="max-w-lg">
+                        <img class="h-auto max-w-full rounded-lg" src="/assets/ssd.avif" alt="Grafika">
+                        <figcaption class="mt-2 text-sm text-center text-gray-500">Samsung 990 PRO 4TB</figcaption>
+                    </figure>                                      
+                </div>
+            </div>
+        </section>
+
+        <hr id="skrin-sekce" class="my-8 border-gray-200">
+
+        <section class="bg-white">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
+                <div class="flex flex-col justify-center">
+                    <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">Cooler Master HAF 700</h1>
+                    <p class="mb-4 text-lg font-normal text-gray-500 lg:text-xl">Počítačová Skříň.</p>
+                    <p class="mb-8 text-lg font-normal text-black-500 lg:text-xl">Prostor pro velké komponenty a efektivní ventilaci. Navrženo pro ty, kteří chtějí mít svůj systém v perfektní kondici.</p>
+                    <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0">
+                        <a href="/komponenty/skrin.html" class="cta-tlacitko inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-red-600 focus:ring-4 focus:ring-red-300">
+                            Více informací
+                            <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.coolermaster.com/en-global/products/haf-700-evo/" target="_blank" class="py-3 px-5 sm:ms-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-100">
+                            Odkaz na výrobce
+                        </a> 
+                    </div>
+                </div>
+                <div>
+                    <figure class="max-w-lg">
+                        <img class="h-auto max-w-full rounded-lg" src="/assets/pc12.webp" alt="Grafika">
+                        <figcaption class="mt-2 text-sm text-center text-gray-500">Cooler Master HAF 700</figcaption>
+                    </figure>                                      
+                </div>
+            </div>
+        </section>
+
+        <hr id="zdroj-sekce" class="my-8 border-gray-200">
+
+        <section class="bg-white">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
+                <div class="flex flex-col justify-center">
+                    <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">Corsair SF850</h1>
+                    <p class="mb-4 text-lg font-normal text-gray-500 lg:text-xl">Zdroj.</p>
+                    <p class="mb-8 text-lg font-normal text-black-500 lg:text-xl">Vysoce výkonný a spolehlivý zdroj s certifikací Gold, zajišťující efektivní spotřebu energie a stabilní napájení všech komponent. Perfektní volba pro náročné sestavy vyžadující maximální výkon.</p>
+                    <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0">
+                        <a href="/komponenty/zdroj.html" class="cta-tlacitko inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-red-600 focus:ring-4 focus:ring-red-300">
+                            Více informací
+                            <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.corsair.com/us/en/p/psu/cp-9020256-na/sf-series-sf850-fully-modular-80-plus-platinum-sfx-power-supply-cp-9020256-na?srsltid=AfmBOooBaMTNQZGvEpPqXXdqcxfOW95UpRmwvCxPm_QrGkLcorMUjHbC" target="_blank" class="py-3 px-5 sm:ms-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-100">
+                            Odkaz na výrobce
+                        </a> 
+                    </div>
+                </div>
+                <div>
+                    <figure class="max-w-lg">
+                        <img class="h-auto max-w-full rounded-lg" src="/assets/zdroj_2.webp" alt="Grafika">
+                        <figcaption class="mt-2 text-sm text-center text-gray-500">Corsair SF850</figcaption>
+                    </figure>                                      
+                </div>
+            </div>
+        </section>
+
+        <hr id="monitor-sekce" class="my-8 border-gray-200">
+
+        <section class="bg-white">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
+                <div class="flex flex-col justify-center">
+                    <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">ZOWIE by BenQ XL2566X+</h1>
+                    <p class="mb-4 text-lg font-normal text-gray-500 lg:text-xl">Profesionální Monitor.</p>
+                    <p class="mb-8 text-lg font-normal text-black-500 lg:text-xl">Exkluzivní funkce pro ostrý obraz, minimální zpoždění a maximální plynulost. Perfektní pro hráče, kteří chtějí vyhrát každou bitvu.</p>
+                    <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0">
+                        <a href="/komponenty/monitor.html" class="cta-tlacitko inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-red-600 focus:ring-4 focus:ring-red-300">
+                            Více informací
+                            <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            </svg>
+                        </a>
+                        <a href="https://zowie.benq.com/en-ap/monitor/xl2566x-plus.html" target="_blank" class="py-3 px-5 sm:ms-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-100">
+                            Odkaz na výrobce
+                        </a> 
+                    </div>
+                </div>
+                <div>
+                    <figure class="max-w-lg">
+                        <img class="h-auto max-w-full rounded-lg" src="/assets/monitor_2.webp" alt="Grafika">
+                        <figcaption class="mt-2 text-sm text-center text-gray-500">24,1" ZOWIE by BenQ XL2566X+</figcaption>
+                    </figure>                                      
+                </div>
+            </div>
+        </section>
+
+        <hr id="klavesnice-sekce" class="my-8 border-gray-200">
+
+        <section class="bg-white">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
+                <div class="flex flex-col justify-center">
+                    <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">Wooting 60HE+</h1>
+                    <p class="mb-4 text-lg font-normal text-gray-500 lg:text-xl">Mechanická Klávesnice.</p>
+                    <p class="mb-8 text-lg font-normal text-black-500 lg:text-xl">Plynulé ovládání, vyšší citlivost a možnost plného analogového vstupu. Ideální pro profesionální hráče a kreativní práci.</p>
+                    <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0">
+                        <a href="/komponenty/klavesnice.html" class="cta-tlacitko inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-red-600 focus:ring-4 focus:ring-red-300">
+                            Více informací
+                            <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            </svg>
+                        </a>
+                        <a href="https://wooting.io/wooting-60he" target="_blank" class="py-3 px-5 sm:ms-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-100">
+                            Odkaz na výrobce
+                        </a> 
+                    </div>
+                </div>
+                <div>
+                    <figure class="max-w-lg">
+                        <img class="h-auto max-w-full rounded-lg" src="/assets/klavesnice.jpg" alt="Grafika">
+                        <figcaption class="mt-2 text-sm text-center text-gray-500">Wooting 60HE+</figcaption>
+                    </figure>                                      
+                </div>
+            </div>
+        </section>
+
+        <hr id="mys-sekce" class="my-8 border-gray-200">
+
+        <section class="bg-white">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
+                <div class="flex flex-col justify-center">
+                    <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">ZOWIE by BenQ U2</h1>
+                    <p class="mb-4 text-lg font-normal text-gray-500 lg:text-xl">Bezdrátová Myš.</p>
+                    <p class="mb-8 text-lg font-normal text-black-500 lg:text-xl">Vysoká citlivost a skvélé ergonomické zpracování pro lepší kontrolu a rychlé reakce v každé hře.</p>
+                    <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0">
+                        <a href="/komponenty/mys.html" class="cta-tlacitko inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-red-600 focus:ring-4 focus:ring-red-300">
+                            Více informací
+                            <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            </svg>
+                        </a>
+                        <a href="https://zowie.benq.eu/en-eu/mouse/u2.html" target="_blank" class="py-3 px-5 sm:ms-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-100">
+                            Odkaz na výrobce
+                        </a> 
+                    </div>
+                </div>
+                <div>
+                    <figure class="max-w-lg">
+                        <img class="h-auto max-w-full rounded-lg" src="/assets/mys_2.webp" alt="Grafika">
+                        <figcaption class="mt-2 text-sm text-center text-gray-500">ZOWIE by BenQ U2</figcaption>
+                    </figure>                                      
+                </div>
+            </div>
+        </section>
+
+        <hr id="sluchatka-sekce" class="my-8 border-gray-200">
+
+        <section class="bg-white">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
+                <div class="flex flex-col justify-center">
+                    <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">SteelSeries Arctis Nova Pro</h1>
+                    <p class="mb-4 text-lg font-normal text-gray-500 lg:text-xl">Bezdrátové Sluchátka.</p>
+                    <p class="mb-8 text-lg font-normal text-black-500 lg:text-xl">Pokročilá technologie zvuku, aktivní potlačení šumu a bezdrátové připojení pro maximální svobodu a kvalitu během hraní i poslechu.</p>
+                    <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0">
+                        <a href="/komponenty/sluchatka.html" class="cta-tlacitko inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-red-600 focus:ring-4 focus:ring-red-300">
+                            Více informací
+                            <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            </svg>
+                        </a>
+                        <a href="https://steelseries.com/gaming-headsets/arctis-nova-pro-wireless-pc-playstation?color=black&srsltid=AfmBOoquXaZSGnWP52bEsJ3k9C-V471MnNVlXdFqZQyC4QkiN81RaZ7c" target="_blank" class="py-3 px-5 sm:ms-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-100">
+                            Odkaz na výrobce
+                        </a> 
+                    </div>
+                </div>
+                <div>
+                    <figure class="max-w-lg">
+                        <img class="h-auto max-w-full rounded-lg" src="/assets/sluchatka_2.webp" alt="Grafika">
+                        <figcaption class="mt-2 text-sm text-center text-gray-500">SteelSeries Arctis Nova Pro Wireless</figcaption>
+                    </figure>                                      
+                </div>
+            </div>
+        </section>
+
+        <hr id="galerie" class="my-8 border-gray-200">
+
+        <section class="py-12 bg-white">
+            <h1 class="text-gray-900 px-6 text-3xl md:text-5xl font-extrabold mb-2">Galerie</h1>
+            <div class="gallery-container py-6 px-6 grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div data-aos="fade-up" data-aos-duration="1500" data-aos-delay="0">
+                    <img class="galerie-obrazek h-auto w-auto rounded-lg" src="assets/pc2.webp" alt="">
+                </div>
+                <div data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+                    <img class="galerie-obrazek h-auto w-auto rounded-lg" src="assets/pc3.webp" alt="">
+                </div>
+                <div data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
+                    <img class="galerie-obrazek h-auto w-auto rounded-lg" src="assets/pc4.webp" alt="">
+                </div>
+                <div data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">
+                    <img class="galerie-obrazek h-auto w-auto rounded-lg" src="assets/pc5.webp" alt="">
+                </div>
+                <div data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
+                    <img class="galerie-obrazek h-auto w-auto rounded-lg" src="assets/pc6.webp" alt="">
+                </div>
+                <div data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">
+                    <img class="galerie-obrazek h-auto w-auto rounded-lg" src="assets/pc7.webp" alt="">
+                </div>
+                <div data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700">
+                    <img class="galerie-obrazek h-auto w-auto rounded-lg" src="assets/pc8.webp" alt="">
+                </div>
+                <div data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800">
+                    <img class="galerie-obrazek h-auto w-auto rounded-lg" src="assets/pc9.webp" alt="">
+                </div>
+                <div data-aos="fade-up" data-aos-duration="1500" data-aos-delay="900">
+                    <img class="galerie-obrazek h-auto w-auto rounded-lg" src="assets/pc10.webp" alt="">
+                </div>
+                <div data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1000">
+                    <img class="galerie-obrazek h-auto w-auto rounded-lg" src="assets/pc11.webp" alt="">
+                </div>
+                <div data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1100">
+                    <img class="galerie-obrazek h-auto w-auto rounded-lg" src="assets/pc12.webp" alt="">
+                </div>
+            </div>
+        </section>
+
+
+        <footer class="bg-white rounded-lg shadow m-4">
+            <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+            <span class="text-sm text-gray-500 sm:text-center">© 2024 <a href="/">Adam Žalůdek - BTSM, 2024</a>
+            </span>
+            <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500sm:mt-0">
+                <li>
+                    <a href="#info" class="hover:underline me-4 md:me-6">Info</a>
+                </li>
+                <li>
+                    <a href="#komponenty" class="hover:underline me-4 md:me-6">Komponenty</a>
+                </li>
+                <li>
+                    <a href="#galerie" class="hover:underline me-4 md:me-6">Galerie</a>
+                </li>
+            </ul>
+            </div>
+        </footer>
+    </div>
+
+
+    <!-- Scripty (Flowbite, Animate on Scroll) -->
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+</body>
+</html>

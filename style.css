@@ -1,0 +1,47 @@
+html {
+  scroll-behavior: smooth;
+}
+
+h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  color: rgb(43, 45, 66);
+}
+
+.nadpisUvod {
+  padding-top: 5%;
+}
+
+.cta-tlacitko {
+  color: white;
+  background-color: #E02424;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-tlacitko:hover {
+  background-color: #C81E1E;
+  transform: scale(1.05);
+}
+
+.galerie-obrazek {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+}
+
+.galerie-obrazek:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Poppins", sans-serif;
+}
+
+p {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.celkova-cena {
+  color: black;
+}
